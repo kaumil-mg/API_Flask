@@ -9,6 +9,23 @@ def isPalindrome(num):
     else:
         return 'Not a Palindrome '+num_str[::-1] + ' and og num is '+str(num)
 
+def fibonacci(num):
+    n=num
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    
+    fib_sequence = [0, 1]
+    for i in range(2, n):
+        next_fib = fib_sequence[-1] + fib_sequence[-2]
+        fib_sequence.append(next_fib)
+    
+    return fib_sequence
+
+
 @app.route('/')
 def start():
     return render_template('index.html')
@@ -25,7 +42,9 @@ def playnum():
         if 'Palindrome' in request.form:  
             return isPalindrome(num)
         elif 'Square' in request.form:
-            return f'The square is: {num * num}'  
+            return f'The square is: {num * num}' 
+        elif 'Fibonnaci' in request.form:
+            return fibonacci(num)
 
     return 'Invalid request'
 
