@@ -30,4 +30,4 @@ def playnum():
     return 'Invalid request'
 
 if __name__ == '__main__':
-    app.run(debug=True, host='100.20.92.101')
+    app.run(debug=True, host='0.0.0.0')
