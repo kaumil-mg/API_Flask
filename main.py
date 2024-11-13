@@ -7,23 +7,26 @@ def isPalindrome(num):
     if num_str == num_str[::-1]:  
         return 'It is a Palindrome'
     else:
-        return 'Not a Palindrome '+num_str[::-1] + ' and og num is '+str(num)
+        return 'Not a Palindrome '+num_str[::-1] + ' and inputed number is '+str(num)
 
 def fibonacci(num):
-    n=num
-    if n <= 0:
-        return []
-    elif n == 1:
-        return [0]
-    elif n == 2:
-        return [0, 1]
-    
-    fib_sequence = [0, 1]
-    for i in range(2, n):
-        next_fib = fib_sequence[-1] + fib_sequence[-2]
-        fib_sequence.append(next_fib)
-    
-    return fib_sequence
+    if num <= 10000:
+        n=num
+        if n <= 0:
+            return []
+        elif n == 1:
+            return [0]
+        elif n == 2:
+            return [0, 1]
+        
+        fib_sequence = [0, 1]
+        for i in range(2, n):
+            next_fib = fib_sequence[-1] + fib_sequence[-2]
+            fib_sequence.append(next_fib)
+        
+        return fib_sequence
+    else:
+        return f'enter value less then 10,000 as your value is {num} which is much larger'
 
 
 @app.route('/')
